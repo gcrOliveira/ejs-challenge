@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+<h1><%=pageTitle%></h1>
+</div>
+<div class="container">
+  <p><%=homeResume%></p>
+</div>
+    <% if (pageContent.length==0){ %>
+      <div class="container">
+        <p>Nothing to see yet!</p>
+      </div>
+    <% } else { %>
+      <% pageContent.forEach((post)=>{ %>
+        <div class="container">
+          <a class ="postLink" href="/posts/<%=post.title%>" ><h3><%= post.title %></h3></a>
+          <p><%= post.content.substring(0,100)+"..." %></p>
+        </div>
+      <% }); %>
+    <% } %>
+<%- include('partials/footer.ejs') %>
